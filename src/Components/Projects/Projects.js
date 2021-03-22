@@ -3,6 +3,7 @@ import './Projects.css';
 import {gql} from 'apollo-boost';
 import {useQuery} from '@apollo/react-hooks';
 import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 export default function Projects() {
   const getProjects = gql`
@@ -26,7 +27,7 @@ export default function Projects() {
     <div className="projects-page">
       <h1 className="projectpage-header">Projects</h1>
       <div className="projects-container">
-        {loading? <Loading/> : (
+        {loading? <Loading/> : error ? <Error message={error.message} /> : (
           data.projectCollection.items.map((project,idx) => (
             <a className="post-container" href={`/projects/${project.slug}`}>
               <div className="featured-post" key={idx}>

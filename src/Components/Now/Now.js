@@ -3,6 +3,7 @@ import React from 'react';
 import './Now.css';
 import { gql, useQuery } from '@apollo/client';
 import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 const getNowPosts = gql`
 query {
   nowCollection{
@@ -21,7 +22,7 @@ export default function Now() {
       <div className="now-header"> Now
       </div>
       <div className ="now-subheader">Brief thoughts and progress reports on what I'm up to now...</div>
-      {loading ? <Loading/> : (
+      {loading ? <Loading/> : error ? <Error message={error.message} /> : (
           <ul className="now-posts-container">
           {data.nowCollection.items.map((post) => {
             return (

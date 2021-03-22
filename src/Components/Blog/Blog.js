@@ -4,6 +4,8 @@ import {processImage,processPostBody,processSubtitle,processTitle} from '../../C
 import {gql} from 'apollo-boost';
 import {useQuery} from '@apollo/react-hooks';
 import {useParams} from 'react-router-dom';
+import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 const getPostBySlug = gql`
 query ($slug: String!) {
@@ -21,34 +23,39 @@ query ($slug: String!) {
     }
   }
 }`;
-
 export default function Blog() {
   const {slug} = useParams();
   const {loading,data,error} = useQuery(getPostBySlug, {
     variables: {slug}
   });
-
   if (loading) {
-    return <div>Loading</div>
+    <div className="blogpage-container">
+      <div className="blog--container">
+        <Loading/>
+      </div>
+    </div>
   }
-  if (data) {
-    let post = data.blogPostCollection.items[0];
-    let {title,created,body,image} = post;
+  if (!data) {
     return (
       <div className="blogpage-container">
         <div className="blog--container">
-          {processTitle(title)}
-          {processSubtitle(created)}
-          {processImage(image)}
-          {processPostBody(body.json)}
+          <Error message={error ? error.message : 'Error'}/>
         </div>
       </div>
-      
-    )
+    );
+  } else {
+  let post = data.blogPostCollection.items[0];
+  let {title,created,body,image} = post;
+  return (
+    <div className="blogpage-container">
+      <div className="blog--container">
+        {processTitle(title)}
+        {processSubtitle(created)}
+        {processImage(image)}
+        {processPostBody(body.json)}
+      </div>
+    </div>
+    );
   }
-  
-  return <div>dkaskasmdkasdmsa</div>
-
-  
 }
 

@@ -5,6 +5,7 @@ import {useQuery} from '@apollo/react-hooks';
 import {useParams} from 'react-router-dom';
 import './Project.css';
 import {processImage,processPostBody,processSubtitle,processTitle} from '../../Contentful/useContentfulProject';
+import Error from '../Error/Error';
 
 /* TODO modify the query for projectCollection */ 
 
@@ -30,19 +31,23 @@ query ($slug:String!){
 
 export default function Project() {
   const {slug} = useParams();
-
   const {loading,data,error} = useQuery(getProjectBySlug, {
     variables: {slug}
-  } )
+  })
+  let project;
   if (loading) {
     return <div>Loading</div>
+  } 
+  if (data) {
+    project = data.projectCollection.items[0];
   }
-  if (error) {
-    {console.log(error)}
-    return <div>Error</div>
-  }
-  let project = data.projectCollection.items[0];
-  return (
+  return !data ? (
+    <div className='projectpage-container'>
+      <div className="project-container">
+        <Error message={error.message}/>
+      </div>
+    </div>
+  ) : (  
     <div className='projectpage-container'>
     <div className="project-container">
       {processTitle(project.title)}
@@ -52,7 +57,6 @@ export default function Project() {
         <a className="project-link" href={project.github}>View Github</a>
         <a className="project-link" href={project.link}>View Website</a>
       </div>
-      
       {processPostBody(project.body.json)}
     </div>
     </div>

@@ -3,6 +3,7 @@ import './Home.css';
 import Link from '../Link/Link'
 import {gql} from 'apollo-boost';
 import {useQuery} from '@apollo/react-hooks';
+import Error from '../Error/Error';
 
 const getBlogPosts = gql`query {
   blogPostCollection {
@@ -33,8 +34,9 @@ export default function Home() {
         <div className="home-featured-posts-title">
           Featured Posts
         </div>
-        {loading ? <div className="featured-posts-loading">Loading Featured Posts</div> : (
-          <ul className="home-featured-posts">
+        {loading ? <div className="featured-posts-loading">Loading Featured Posts</div> : 
+        error ? <Error message={error.message}/> :
+        (<ul className="home-featured-posts">
           {data.blogPostCollection.items.map((post) => {
               return (
                 <a href={`/blog/${post.slug}`}className="featured-post" >

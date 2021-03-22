@@ -4,6 +4,7 @@ import './Writing.css';
 import {gql} from 'apollo-boost';
 import {useQuery} from '@apollo/react-hooks';
 import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 const getPosts = gql`query {
     blogPostCollection {
@@ -26,7 +27,7 @@ export default function Writing() {
       <div className="writing-container">
       <div className="writing-header"> Posts
       </div>
-      {loading ? <Loading/> : (
+      {loading ? <Loading/> : error ? <Error message={error.message}/> : (
       <ul className="writing-posts-container">
         {data.blogPostCollection.items.map((post) => {
           return (
