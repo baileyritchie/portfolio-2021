@@ -3,6 +3,7 @@ import React from 'react';
 import {gql} from 'apollo-boost';
 import {useQuery} from '@apollo/react-hooks';
 import {useParams} from 'react-router-dom';
+import Loading from '../Loading/Loading';
 import './Project.css';
 import {processImage,processPostBody,processSubtitle,processTitle} from '../../Contentful/useContentfulProject';
 import Error from '../Error/Error';
@@ -36,7 +37,14 @@ export default function Project() {
   })
   let project;
   if (loading) {
-    return <div>Loading</div>
+
+    return (
+      <div className='projectpage-container'>
+    <div className="project-container">
+      <Loading/>
+    </div>
+    </div>
+    )
   } 
   if (data) {
     project = data.projectCollection.items[0];

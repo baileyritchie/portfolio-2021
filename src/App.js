@@ -20,7 +20,7 @@ const {REACT_APP_SPACE_ID : SPACE_ID, REACT_APP_CDA_TOKEN : TOKEN} = process.env
 function App() {
   let navLinks = navElements();
   const apClient = new ApolloClient({
-    uri: `https://graphql.contentful.com/content/v1/spaces/1234?access_token=${TOKEN}`
+    uri: `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}?access_token=${TOKEN}`
   });
   return (
     <ApolloProvider client={apClient}>
