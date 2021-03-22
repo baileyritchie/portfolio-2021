@@ -1,0 +1,31 @@
+.link {
+  text-decoration: none;
+  font-size: 24px;
+  overflow:hidden;
+  height: 100%;
+  position: relative;
+  overflow:hidden;
+  font-weight: 600;
+  color: #303030;
+}
+.link:after {
+  content: "";
+  background-color: #85a4ff;
+  width:0%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: -1;
+  transform:scale(1.05);
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+}
+.link:hover {
+  color:#303030;
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+}
+.link:hover:after {
+  left: 0px;
+  bottom:0px;
+  width: 100%;
+  height: 40%;
+}

@@ -1,0 +1,146 @@
+
+.about-photo-container {
+  padding-right: 10px;
+  max-width: 360px;
+}
+.about-greeting {
+  position: absolute;
+  top: 7%;
+  left:36%;
+  font-size: 56px;
+  font-family: 'Roboto Slab',sans-serif;
+}
+.about-photo {
+  width:100%;
+  height: 100%;
+  border-radius: 22px;
+}
+.about-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+.descrip {
+  padding-left: 10px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.descrip-header {
+  color: #85a4ff;
+  font-size: 28px;
+}
+.descrip-main {
+  margin-top: -2px;
+  font-size: 22px;
+}
+.about-col-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.about-col {
+  padding: 0px 10px;
+  width: 240px;
+  text-align: left;
+}
+.about-col-header {
+  font-size: 32px;
+  font-family: 'Roboto Slab', sans-serif;
+}
+.about-col-content {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+}
+.about-social-header {
+  font-weight: 600;
+  margin-bottom: -12px;
+}
+
+.about-social-container {
+  list-style: none;
+  padding: 0px 0px;
+}
+
+.about-social-about-about-link {
+  padding: 4px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.social-icon {
+  margin-right: 10px;
+}
+
+.about-link {
+  text-decoration: none;
+  font-size: 18px;
+  overflow:hidden;
+  height: 100%;
+  position: relative;
+  overflow:hidden;
+  font-weight: 600;
+  color: #303030;
+}
+.about-link:after {
+  content: "";
+  background-color: #85a4ff;
+  width:0%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: -1;
+  transform:scale(1.05);
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+}
+.about-link:hover {
+  color:#303030;
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+}
+.about-link:hover:after {
+  left: 0px;
+  bottom:0px;
+  width: 100%;
+  height: 40%;
+}
+
+/* mobile */
+@media screen and (max-width: 960px) {
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+  }
+  .about-greeting {
+    position: absolute;
+    width: fit-content;
+    top: 7%;
+    left:26%;
+    font-size: 56px;
+    font-family: 'Roboto Slab',sans-serif;
+  }
+  .about-col-container {
+    display:flex;
+    flex-direction: column;
+    padding-left: 10px;
+  }
+  .about-col {
+    width: 360px;
+    padding: 0px 0px;
+  }
+  .descrip {
+    padding-left: 0px;
+  }
+
+}
