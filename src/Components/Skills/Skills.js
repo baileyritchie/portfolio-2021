@@ -43,14 +43,17 @@ export default function Skills() {
           </ul>
         </div>
         </div>
-        <h1 className="certification-header">Certifications</h1>
-        <div className="certification-container">
-          <h2 className="subcert-header">AWS</h2>
-          <ul className="certification-list">
-            <li className="certification-item"> <BsCaretRightFill size={17} style={{"margin-right":"2px"}}/> Associate Solutions Architect - 3/15/2021</li>
-          </ul>
-        </div>
-        
+        {
+          /*
+          <h1 className="certification-header">Certifications</h1>
+          <div className="certification-container">
+            <h2 className="subcert-header">AWS</h2>
+            <ul className="certification-list">
+              <li className="certification-item"> <BsCaretRightFill size={17} style={{"margin-right":"2px"}}/> Associate Solutions Architect - 3/15/2021</li>
+            </ul>
+          </div>
+          */
+        }
     </div>
   )
 }

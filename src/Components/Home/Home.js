@@ -27,7 +27,7 @@ export default function Home() {
         <h2 className="home-intro-name">hey i'm bailey &</h2>
         <h1 className="home-intro-title">I build websites.</h1>
         <p className="home-intro-descrip">I am a self-taught, full-stack developer mostly working with JavaScript. 
-          I share my writing on my <Link url="/writing" title="blog"/> and my other thoughts on <Link url="www.twitter.com/baileylritchie" title="twitter"/>.
+          I share my writing on my <Link url="/blog" title="blog"/> and my other thoughts on <Link url="http://twitter.com/baileylritchie" title="twitter"/>.
         </p>
       </div>
       <div className="home-featured-posts-container">

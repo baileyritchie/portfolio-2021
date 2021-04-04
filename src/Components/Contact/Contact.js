@@ -35,7 +35,7 @@ export default function Contact() {
       <div className ="contact-subheader">
         If you'd like to send me a message, I can be reached through various ways. 
         If you prefer email, simply fill out the form below or send me a message directly at baileylritchie@gmail.com. 
-        For quick access, you can also find my <a className="contact-link" href="http://resume.com">resume</a> here.
+        {/*For quick access, you can also find my <a className="contact-link" href="http://resume.com">resume</a> here.*/}
         Thank you!
       </div>
       <div className="contact-content-container">
